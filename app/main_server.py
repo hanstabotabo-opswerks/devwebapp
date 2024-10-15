@@ -1,6 +1,9 @@
 import os
 import webcolors
 from flask import Flask
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -13,7 +16,7 @@ def color_name_to_hex(color_name):
 def home():
     title = "Welcome to the Main Server"
     
-    color_name = os.getenv('COLOR', 'white')  
+    color_name = os.getenv('COLOR')  
     hex_color = color_name_to_hex(color_name) 
     
     return f'''
